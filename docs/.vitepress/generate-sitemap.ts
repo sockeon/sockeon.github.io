@@ -52,7 +52,8 @@ export async function generateSitemap() {
   htmlFiles.forEach(file => {
     if (file === 'index.html') return
     
-    let path = file.replace(/index\.html$/, '').replace(/\.html$/, '')
+    // Keep .html extension in URLs
+    let path = file
     if (!path.startsWith('/')) path = '/' + path
     
     // Skip 404 and other special pages
