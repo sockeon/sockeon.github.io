@@ -18,14 +18,14 @@ export default defineConfig({
     ['meta', { property: 'og:site_name', content: 'Sockeon' }],
     ['meta', { property: 'og:title', content: 'Sockeon - PHP WebSocket & HTTP Server' }],
     ['meta', { property: 'og:description', content: 'Build real-time applications with a unified server that handles both WebSocket and HTTP protocols seamlessly' }],
-    ['meta', { property: 'og:image', content: 'https://sockeon.com/public/logo.png' }],
+    ['meta', { property: 'og:image', content: 'https://sockeon.com/logo.png' }],
     ['meta', { property: 'og:url', content: 'https://sockeon.com' }],
     
     // Twitter Card
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { name: 'twitter:title', content: 'Sockeon - PHP WebSocket & HTTP Server' }],
     ['meta', { name: 'twitter:description', content: 'Build real-time applications with a unified server that handles both WebSocket and HTTP protocols seamlessly' }],
-    ['meta', { name: 'twitter:image', content: 'https://sockeon.com/public/logo.png' }],
+    ['meta', { name: 'twitter:image', content: 'https://sockeon.com/logo.png' }],
     
     // Favicon
     ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
