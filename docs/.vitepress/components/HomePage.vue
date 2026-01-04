@@ -75,14 +75,16 @@
               <span class="code-filename">server.php</span>
             </div>
             <div class="code-preview-content">
-              <div class="code-line"><span class="code-keyword">use</span> <span
-                  class="code-class">Sockeon\Sockeon</span>;</div>
-              <div class="code-line"><span class="code-keyword">class</span> <span
-                  class="code-class">ChatController</span> {</div>
-              <div class="code-line"> <span class="code-attr">#[SocketOn</span>(<span
-                  class="code-string">'message'</span>)<span class="code-attr">]</span></div>
-              <div class="code-line"> <span class="code-keyword">public function</span> <span
-                  class="code-function">handle</span>() { }</div>
+              <div class="code-line"><span class="code-keyword">use</span>&nbsp;<span class="code-class">Sockeon\Sockeon\Controllers\SocketController</span>;</div>
+              <div class="code-line"><span class="code-keyword">use</span>&nbsp;<span class="code-class">Sockeon\Sockeon\WebSocket\Attributes\SocketOn</span>;</div>
+              <div class="code-line">&nbsp;</div>
+              <div class="code-line"><span class="code-keyword">class</span>&nbsp;<span class="code-class">ChatController</span>&nbsp;<span class="code-keyword">extends</span>&nbsp;<span class="code-class">SocketController</span></div>
+              <div class="code-line">{</div>
+              <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-attr">#[SocketOn</span>(<span class="code-string">'chat.message'</span>)<span class="code-attr">]</span></div>
+              <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">function</span>&nbsp;<span class="code-function">handle</span>(<span class="code-type">string</span>&nbsp;<span class="code-variable">$clientId</span>,&nbsp;<span class="code-type">array</span>&nbsp;<span class="code-variable">$data</span>):&nbsp;<span class="code-type">void</span></div>
+              <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;{</div>
+              <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-variable">$this</span>-&gt;<span class="code-function">broadcast</span>(<span class="code-string">'chat.message'</span>,&nbsp;<span class="code-variable">$data</span>);</div>
+              <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;}</div>
               <div class="code-line">}</div>
             </div>
           </div>
@@ -212,27 +214,52 @@
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-      <div class="cta-container">
-        <div class="cta-content">
-          <h2 class="cta-title">Ready to Build Something Amazing?</h2>
-          <p class="cta-description">Start building real-time applications with Sockeon today</p>
-          <div class="cta-actions">
-            <a href="/v2.0/getting-started/installation" class="btn btn-primary btn-large">
-              <span>Get Started</span>
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </a>
-            <a href="https://github.com/sockeon/sockeon" class="btn btn-ghost btn-large" target="_blank" rel="noopener">
-              View Documentation
-            </a>
+    <!-- Footer Section -->
+    <footer class="home-footer">
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <h3 class="footer-title">Sockeon</h3>
+            <p class="footer-tagline">PHP WebSocket & HTTP Server</p>
+            <p class="footer-description">Build real-time applications with a unified server that handles both WebSocket and HTTP protocols seamlessly.</p>
+          </div>
+          
+          <div class="footer-links">
+            <div class="footer-column">
+              <h4 class="footer-column-title">Documentation</h4>
+              <ul class="footer-list">
+                <li><a href="/v2.0/getting-started/installation">Getting Started</a></li>
+                <li><a href="/v2.0/getting-started/quick-start">Quick Start</a></li>
+                <li><a href="/v2.0/core/controllers">Controllers</a></li>
+                <li><a href="/v2.0/api/server">API Reference</a></li>
+              </ul>
+            </div>
+            
+            <div class="footer-column">
+              <h4 class="footer-column-title">Resources</h4>
+              <ul class="footer-list">
+                <li><a href="https://github.com/sockeon/sockeon" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="https://github.com/sockeon/sockeon/issues" target="_blank" rel="noopener">Issues</a></li>
+                <li><a href="https://github.com/sockeon/sockeon/discussions" target="_blank" rel="noopener">Discussions</a></li>
+                <li><a href="/v2.0/examples/basic-server">Examples</a></li>
+              </ul>
+            </div>
+            
+            <div class="footer-column">
+              <h4 class="footer-column-title">Versions</h4>
+              <ul class="footer-list">
+                <li><a href="/v2.0/getting-started/installation">v2.0 (Current)</a></li>
+                <li><a href="/v1.0/">v1.0</a></li>
+              </ul>
+            </div>
           </div>
         </div>
+        
+        <div class="footer-bottom">
+          <p class="footer-copyright">© {{ new Date().getFullYear() }} Sockeon. Built with PHP.</p>
+        </div>
       </div>
-    </section>
+    </footer>
   </div>
 </template>
 
@@ -470,6 +497,7 @@ function copyCode(code, type) {
   align-items: center;
   padding: 4rem 0;
   overflow: hidden;
+  width: 100%;
 }
 
 .hero-background {
@@ -749,11 +777,13 @@ function copyCode(code, type) {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  max-width: 600px;
 }
 
 .code-preview {
   width: 100%;
-  max-width: 500px;
+  max-width: 100%;
   background: var(--vp-code-block-bg);
   border: 1px solid var(--vp-c-divider);
   border-radius: 16px;
@@ -836,6 +866,14 @@ function copyCode(code, type) {
   color: #ffcb6b;
 }
 
+.code-variable {
+  color: #f78c6c;
+}
+
+.code-type {
+  color: #c792ea;
+}
+
 /* Features Section */
 .features-section {
   position: relative;
@@ -847,17 +885,22 @@ function copyCode(code, type) {
 .section-header {
   text-align: center;
   margin-bottom: 4rem;
+  overflow: visible;
 }
 
 .section-title {
   font-size: 3rem;
   font-weight: 800;
   margin: 0 0 1rem 0;
+  padding: 0;
+  line-height: 1.2;
   background: linear-gradient(135deg, var(--vp-c-text-1), var(--vp-c-text-2));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   letter-spacing: -0.02em;
+  display: block;
+  overflow: visible;
 }
 
 .section-description {
@@ -1235,54 +1278,100 @@ function copyCode(code, type) {
   margin: 0;
 }
 
-/* CTA Section */
-.cta-section {
-  padding: 8rem 2rem;
+/* Footer Section */
+.home-footer {
+  border-top: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft);
+}
+
+.footer-container {
   max-width: 1280px;
   margin: 0 auto;
+  padding: 4rem 2rem 2rem;
 }
 
-.cta-container {
-  text-align: center;
-  padding: 4rem;
-  background: linear-gradient(135deg, var(--vp-c-brand-soft), var(--vp-c-indigo-soft));
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 32px;
-  position: relative;
-  overflow: hidden;
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 4rem;
+  margin-bottom: 3rem;
 }
 
-.cta-container::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1), transparent);
+.footer-brand {
+  max-width: 400px;
 }
 
-.cta-content {
-  position: relative;
-  z-index: 1;
-}
-
-.cta-title {
-  font-size: 3rem;
+.footer-title {
+  font-size: 1.5rem;
   font-weight: 800;
-  margin: 0 0 1rem 0;
+  margin: 0 0 0.5rem 0;
   color: var(--vp-c-text-1);
-  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--vp-c-brand-1), var(--vp-c-brand-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.cta-description {
-  font-size: 1.25rem;
+.footer-tagline {
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--vp-c-text-2);
-  margin: 0 0 2.5rem 0;
+  margin: 0 0 1rem 0;
 }
 
-.cta-actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
+.footer-description {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--vp-c-text-2);
+  margin: 0;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.footer-column-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--vp-c-text-1);
+  margin: 0 0 1rem 0;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-list li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-list a {
+  font-size: 0.875rem;
+  color: var(--vp-c-text-2);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-list a:hover {
+  color: var(--vp-c-brand);
+}
+
+.footer-bottom {
+  padding-top: 2rem;
+  border-top: 1px solid var(--vp-c-divider);
+  text-align: center;
+}
+
+.footer-copyright {
+  font-size: 0.875rem;
+  color: var(--vp-c-text-2);
+  margin: 0;
 }
 
 /* Responsive */
@@ -1320,8 +1409,8 @@ function copyCode(code, type) {
     grid-template-columns: 1fr;
   }
 
-  .cta-title {
-    font-size: 2rem;
+  .footer-links {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1364,8 +1453,7 @@ function copyCode(code, type) {
   .features-section,
   .code-example-section,
   .use-cases-section,
-  .why-section,
-  .cta-section {
+  .why-section {
     padding: 4rem 1rem;
   }
 
@@ -1373,12 +1461,22 @@ function copyCode(code, type) {
     font-size: 2rem;
   }
 
-  .cta-container {
-    padding: 2.5rem 1.5rem;
+  .home-footer {
+    margin-top: 4rem;
   }
 
-  .cta-title {
-    font-size: 1.75rem;
+  .footer-container {
+    padding: 3rem 1rem 1.5rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .footer-links {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
 }
 </style>
