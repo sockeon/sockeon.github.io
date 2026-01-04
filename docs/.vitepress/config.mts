@@ -3,8 +3,35 @@ import { getSidebar } from './sidebars'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  lang: 'en-US',
   title: "Sockeon",
   description: "A framework-agnostic PHP WebSocket and HTTP server library",
+  head: [
+    ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
+    ['meta', { name: 'author', content: 'Sockeon' }],
+    ['meta', { name: 'keywords', content: 'PHP, WebSocket, HTTP Server, Real-time, Sockeon, PHP Framework, WebSocket Server' }],
+    ['meta', { name: 'theme-color', content: '#6366f1' }],
+    ['meta', { name: 'robots', content: 'index, follow' }],
+    
+    // Open Graph
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:site_name', content: 'Sockeon' }],
+    ['meta', { property: 'og:title', content: 'Sockeon - PHP WebSocket & HTTP Server' }],
+    ['meta', { property: 'og:description', content: 'Build real-time applications with a unified server that handles both WebSocket and HTTP protocols seamlessly' }],
+    ['meta', { property: 'og:image', content: 'https://sockeon.com/public/logo.png' }],
+    ['meta', { property: 'og:url', content: 'https://sockeon.com' }],
+    
+    // Twitter Card
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:title', content: 'Sockeon - PHP WebSocket & HTTP Server' }],
+    ['meta', { name: 'twitter:description', content: 'Build real-time applications with a unified server that handles both WebSocket and HTTP protocols seamlessly' }],
+    ['meta', { name: 'twitter:image', content: 'https://sockeon.com/public/logo.png' }],
+    
+    // Favicon
+    ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
+    ['link', { rel: 'apple-touch-icon', href: '/logo.png' }]
+  ],
+  
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
