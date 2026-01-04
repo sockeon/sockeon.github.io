@@ -56,7 +56,7 @@ export default defineConfig({
       options: {
         appId: 'NDFUG8I0D2',
         apiKey: '649717b25060e28c3cef93af26888759',
-        indexName: 'sockeon',
+        indexName: 'Sockeon',
         placeholder: 'Search documentation...',
         translations: {
           button: {
