@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue'
+import { computed } from 'vue'
 import { useRouter, useRoute } from 'vitepress'
 import versionsData from '../versions.json'
 
@@ -27,7 +27,6 @@ const defaultVersion = versionsData.defaultVersion
 
 const router = useRouter()
 const route = useRoute()
-const currentVersion = ref(defaultVersion)
 
 // Check if current page is a docs page
 const isDocsPage = computed(() => {
@@ -36,15 +35,13 @@ const isDocsPage = computed(() => {
   return path.match(/^\/v[\d.]+\//) !== null
 })
 
-onMounted(() => {
-  // Detect current version from path
+// Automatically detect current version from URL path (reactive)
+const currentVersion = computed(() => {
   const path = route.path
   const version = versions.find(v => {
     return path.startsWith(v.path)
   })
-  if (version) {
-    currentVersion.value = version.version
-  }
+  return version ? version.version : defaultVersion
 })
 
 function handleVersionChange(event: Event) {
