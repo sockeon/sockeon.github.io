@@ -1,0 +1,8 @@
+[submodule "docs/v1.0"]
+	path = docs/v1.0
+	url = git@github.com:sockeon/docs
+	branch = v1.0
+[submodule "docs/v2.0"]
+	path = docs/v2.0
+	url = git@github.com:sockeon/docs
+	branch = v2.0
