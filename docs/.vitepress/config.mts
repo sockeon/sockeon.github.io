@@ -27,6 +27,9 @@ export default defineConfig({
     ['meta', { name: 'twitter:description', content: 'Build real-time applications with a unified server that handles both WebSocket and HTTP protocols seamlessly' }],
     ['meta', { name: 'twitter:image', content: 'https://sockeon.com/logo.png' }],
     
+    // Algolia site verification
+    ['meta', { name: 'algolia-site-verification', content: '69C814E8A28C3B41' }],
+
     // Favicon
     ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
     ['link', { rel: 'apple-touch-icon', href: '/logo.png' }]
