@@ -35,7 +35,8 @@ export function getSidebar(version: string): DefaultTheme.Sidebar {
             { text: 'Controllers', link: '/v2.0/core/controllers' },
             { text: 'Routing', link: '/v2.0/core/routing' },
             { text: 'Middleware', link: '/v2.0/core/middleware' },
-            { text: 'Namespaces and Rooms', link: '/v2.0/core/namespaces-rooms' }
+            { text: 'Namespaces and Rooms', link: '/v2.0/core/namespaces-rooms' },
+            { text: 'System Room Controller', link: '/v2.0/core/system-room-controller' }
           ]
         },
         {
