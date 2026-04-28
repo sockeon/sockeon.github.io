@@ -105,11 +105,19 @@ git push origin main
 
 When deploying, update submodules with:
 ```bash
-# Update v1.0
-cd docs/v1.0 && git fetch origin v1.0 --depth=1 && git reset --hard FETCH_HEAD && cd ../..
+# Ensure submodules exist at the exact commits pinned by this release
+git submodule sync --recursive
+git submodule update --init --recursive
+```
 
-# Update v2.0
-cd docs/v2.0 && git fetch origin v2.0 --depth=1 && git reset --hard FETCH_HEAD && cd ../..
+If your deploy runner starts from the monorepo root, run:
+
+```bash
+cd sockeon.com
+git submodule sync --recursive
+git submodule update --init --recursive
+npm install
+npm run build
 ```
 
 ## 🎨 Customization
