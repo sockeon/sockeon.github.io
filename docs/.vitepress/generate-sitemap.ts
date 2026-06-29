@@ -9,7 +9,7 @@ interface SitemapUrl {
 }
 
 export async function generateSitemap() {
-  const baseUrl = 'https://sockeon.com'
+  const baseUrl = 'https://sockeon.github.io'
   const distPath = join(process.cwd(), 'docs', '.vitepress', 'dist')
   
   if (!existsSync(distPath)) {
