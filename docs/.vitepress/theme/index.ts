@@ -3,6 +3,7 @@ import { h } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import VersionSelector from './../components/VersionSelector.vue'
+import DraftBanner from './../components/DraftBanner.vue'
 import HomePage from './../components/HomePage.vue'
 import './style.css'
 
@@ -11,7 +12,8 @@ export default {
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
       // https://vitepress.dev/guide/extending-default-theme#layout-slots
-      'nav-bar-title-after': () => h(VersionSelector)
+      'layout-top': () => h(DraftBanner),
+      'nav-bar-content-after': () => h(VersionSelector)
     })
   },
   enhanceApp({ app, router, siteData }) {

@@ -6,3 +6,7 @@
 	path = docs/v2.0
 	url = git@github.com:sockeon/docs
 	branch = v2.0
+[submodule "docs/v3.0"]
+	path = docs/v3.0
+	url = git@github.com:sockeon/docs.git
+	branch = v3.0

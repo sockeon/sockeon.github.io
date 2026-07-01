@@ -1,4 +1,4 @@
-import { writeFileSync, readdirSync, statSync, existsSync } from 'fs'
+import { writeFileSync, readdirSync, existsSync, readFileSync } from 'fs'
 import { join, relative } from 'path'
 
 interface SitemapUrl {
@@ -39,6 +39,13 @@ export async function generateSitemap() {
   }
   
   const htmlFiles = findHtmlFiles(distPath)
+
+  const versionsPath = join(process.cwd(), 'docs', '.vitepress', 'versions.json')
+  const draftPaths: string[] = existsSync(versionsPath)
+    ? JSON.parse(readFileSync(versionsPath, 'utf-8')).versions
+        .filter((v: { draft?: boolean }) => v.draft)
+        .map((v: { path: string }) => v.path)
+    : []
   
   // Add main page
   urls.push({
@@ -58,6 +65,9 @@ export async function generateSitemap() {
     
     // Skip 404 and other special pages
     if (path.includes('404') || path.includes('404.html')) return
+
+    // Skip draft documentation versions
+    if (draftPaths.some((draftPath) => path.startsWith(draftPath))) return
     
     // Determine priority based on path
     let priority = '0.7'

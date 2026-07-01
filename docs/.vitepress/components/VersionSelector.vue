@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isDocsPage" class="version-selector">
+  <div v-if="isDocsPage" class="version-selector" @click.stop @mousedown.stop @dblclick.stop>
     <select
       :value="currentVersion"
       @change="handleVersionChange"
@@ -47,18 +47,20 @@ const currentVersion = computed(() => {
 function handleVersionChange(event: Event) {
   const target = event.target as HTMLSelectElement
   const selectedVersion = versions.find(v => v.version === target.value)
-  if (selectedVersion) {
-    // Always redirect to the main documentation page of the selected version
-    const firstPage = selectedVersion.firstPage || selectedVersion.path
-    router.go(firstPage)
+  if (!selectedVersion || selectedVersion.version === currentVersion.value) {
+    return
   }
+
+  const firstPage = selectedVersion.firstPage || selectedVersion.path
+  router.go(firstPage)
 }
 </script>
 
 <style scoped>
 .version-selector {
-  margin-left: auto;
+  margin-left: 1rem;
   display: inline-block;
+  pointer-events: auto;
 }
 
 .version-select {

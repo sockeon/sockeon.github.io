@@ -242,6 +242,7 @@
               <h4 class="footer-column-title">Versions</h4>
               <ul class="footer-list">
                 <li><a href="/v2.0/getting-started/installation">v2.0 (Current)</a></li>
+                <li><a href="/v3.0/getting-started/installation">v3.0 (draft)</a></li>
                 <li><a href="/v1.0/">v1.0</a></li>
               </ul>
             </div>

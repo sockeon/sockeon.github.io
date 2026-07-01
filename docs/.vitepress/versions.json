@@ -1,6 +1,13 @@
 {
   "versions": [
     {
+      "version": "3.0",
+      "label": "v3.0 (draft)",
+      "path": "/v3.0/",
+      "firstPage": "/v3.0/getting-started/installation",
+      "draft": true
+    },
+    {
       "version": "2.0",
       "label": "v2.0",
       "path": "/v2.0/",

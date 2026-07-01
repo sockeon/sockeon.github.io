@@ -39,12 +39,13 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Documentation', link: '/v2.0/getting-started/installation', activeMatch: '/(v1\\.0|v2\\.0)/' },
+      { text: 'Documentation', link: '/v2.0/getting-started/installation', activeMatch: '/(v1\\.0|v2\\.0|v3\\.0)/' },
     ],
 
     sidebar: {
       ...getSidebar('v1.0'),
-      ...getSidebar('v2.0')
+      ...getSidebar('v2.0'),
+      ...getSidebar('v3.0')
     },
 
     socialLinks: [

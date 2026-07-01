@@ -8,3 +8,6 @@ Sitemap: https://sockeon.github.io/sitemap.xml
 Disallow: /admin/
 Disallow: /private/
 
+# Draft documentation (not indexed until released)
+Disallow: /v3.0/
+
