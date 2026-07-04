@@ -1,8 +1,7 @@
 <template>
   <div v-if="isDocsPage" class="version-selector" @click.stop @mousedown.stop @dblclick.stop>
     <select
-      :value="currentVersion"
-      @change="handleVersionChange"
+      v-model="selectedVersion"
       class="version-select"
     >
       <option
@@ -35,25 +34,23 @@ const isDocsPage = computed(() => {
   return path.match(/^\/v[\d.]+\//) !== null
 })
 
-// Automatically detect current version from URL path (reactive)
-const currentVersion = computed(() => {
-  const path = route.path
-  const version = versions.find(v => {
-    return path.startsWith(v.path)
-  })
+function versionFromPath(path: string): string {
+  const match = path.match(/^\/v([\d.]+)(?:\/|$)/)
+  if (!match) return defaultVersion
+  const version = versions.find(v => v.version === match[1])
   return version ? version.version : defaultVersion
-})
-
-function handleVersionChange(event: Event) {
-  const target = event.target as HTMLSelectElement
-  const selectedVersion = versions.find(v => v.version === target.value)
-  if (!selectedVersion || selectedVersion.version === currentVersion.value) {
-    return
-  }
-
-  const firstPage = selectedVersion.firstPage || selectedVersion.path
-  router.go(firstPage)
 }
+
+const selectedVersion = computed({
+  get: () => versionFromPath(route.path),
+  set: (value: string) => {
+    const version = versions.find(v => v.version === value)
+    if (!version || version.version === versionFromPath(route.path)) {
+      return
+    }
+    router.go(version.firstPage || version.path)
+  }
+})
 </script>
 
 <style scoped>
