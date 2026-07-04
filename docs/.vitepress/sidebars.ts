@@ -149,6 +149,7 @@ export function getSidebar(version: string): DefaultTheme.Sidebar {
           items: [
             { text: 'Swoole Engine', link: '/v3.0/advanced/swoole-engine' },
             { text: 'Scaling and Clustering', link: '/v3.0/advanced/scaling' },
+            { text: 'Performance Overview', link: '/v3.0/advanced/benchmark-report' },
             { text: 'Rate Limiting', link: '/v3.0/advanced/rate-limiting' },
             { text: 'Logging', link: '/v3.0/advanced/logging' },
             { text: 'Error Handling', link: '/v3.0/advanced/error-handling' },
