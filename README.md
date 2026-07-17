@@ -4,7 +4,7 @@ Official documentation website for [Sockeon](https://sockeon.github.io) - A fram
 
 ## 🚀 Features
 
-- **Versioned Documentation**: Supports multiple documentation versions (v1.0, v2.0, and v3.0 draft)
+- **Versioned Documentation**: Supports multiple documentation versions (v1.0, v2.0, and v3.0)
 - **Modern Stack**: Built with [VitePress](https://vitepress.dev/) for fast, SEO-friendly documentation
 - **Algolia Search**: Integrated Algolia DocSearch for powerful documentation search
 - **SEO Optimized**: Includes sitemap generation, robots.txt, and proper meta tags
@@ -72,7 +72,7 @@ npm run docs:preview
 │   │   └── theme/          # Theme customizations
 │   ├── v1.0/               # v1.0 documentation (submodule)
 │   ├── v2.0/               # v2.0 documentation (submodule)
-│   ├── v3.0/               # v3.0 documentation (submodule, draft)
+│   ├── v3.0/               # v3.0 documentation (submodule)
 │   ├── index.md            # Home page
 │   └── public/             # Static assets
 ├── package.json
@@ -176,8 +176,8 @@ location / {
 
 ## 📚 Documentation Versions
 
-- **v2.0** (Current): Stable documentation for the latest release
-- **v3.0** (Draft): Upcoming engines, Swoole, scaling — not indexed until released
+- **v3.0** (Current): Stable documentation for the latest release — engines, Swoole, scaling
+- **v2.0**: Documentation for the 2.x release line
 - **v1.0** (Legacy): Previous version for reference
 
 Users can switch between versions using the version selector in the navigation bar.
@@ -197,5 +197,5 @@ This documentation website is part of the Sockeon project.
 
 - **Website**: https://sockeon.github.io
 - **GitHub**: https://github.com/sockeon/sockeon
-- **Documentation**: https://sockeon.github.io/v2.0/getting-started/installation
+- **Documentation**: https://sockeon.github.io/v3.0/getting-started/installation
 

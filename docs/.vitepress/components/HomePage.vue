@@ -46,7 +46,7 @@
           </div>
 
           <div class="hero-actions">
-            <a href="/v2.0/getting-started/installation" class="btn btn-primary">
+            <a href="/v3.0/getting-started/installation" class="btn btn-primary">
               <span>Get Started</span>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -221,10 +221,10 @@
             <div class="footer-column">
               <h4 class="footer-column-title">Documentation</h4>
               <ul class="footer-list">
-                <li><a href="/v2.0/getting-started/installation">Getting Started</a></li>
-                <li><a href="/v2.0/getting-started/quick-start">Quick Start</a></li>
-                <li><a href="/v2.0/core/controllers">Controllers</a></li>
-                <li><a href="/v2.0/api/server">API Reference</a></li>
+                <li><a href="/v3.0/getting-started/installation">Getting Started</a></li>
+                <li><a href="/v3.0/getting-started/quick-start">Quick Start</a></li>
+                <li><a href="/v3.0/core/controllers">Controllers</a></li>
+                <li><a href="/v3.0/api/server">API Reference</a></li>
               </ul>
             </div>
             
@@ -234,15 +234,15 @@
                 <li><a href="https://github.com/sockeon/sockeon" target="_blank" rel="noopener">GitHub</a></li>
                 <li><a href="https://github.com/sockeon/sockeon/issues" target="_blank" rel="noopener">Issues</a></li>
                 <li><a href="https://github.com/sockeon/sockeon/discussions" target="_blank" rel="noopener">Discussions</a></li>
-                <li><a href="/v2.0/examples/basic-server">Examples</a></li>
+                <li><a href="/v3.0/examples/basic-server">Examples</a></li>
               </ul>
             </div>
             
             <div class="footer-column">
               <h4 class="footer-column-title">Versions</h4>
               <ul class="footer-list">
-                <li><a href="/v2.0/getting-started/installation">v2.0 (Current)</a></li>
-                <li><a href="/v3.0/getting-started/installation">v3.0 (draft)</a></li>
+                <li><a href="/v3.0/getting-started/installation">v3.0 (Current)</a></li>
+                <li><a href="/v2.0/getting-started/installation">v2.0</a></li>
                 <li><a href="/v1.0/">v1.0</a></li>
               </ul>
             </div>

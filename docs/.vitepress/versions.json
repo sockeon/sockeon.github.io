@@ -2,10 +2,9 @@
   "versions": [
     {
       "version": "3.0",
-      "label": "v3.0 (draft)",
+      "label": "v3.0",
       "path": "/v3.0/",
-      "firstPage": "/v3.0/getting-started/installation",
-      "draft": true
+      "firstPage": "/v3.0/getting-started/installation"
     },
     {
       "version": "2.0",
@@ -20,6 +19,6 @@
       "firstPage": "/v1.0/"
     }
   ],
-  "defaultVersion": "2.0"
+  "defaultVersion": "3.0"
 }
 
